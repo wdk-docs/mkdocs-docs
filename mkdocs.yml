@@ -1,0 +1,122 @@
+site_name: MkDocs
+site_url: https://www.mkdocs.org/
+site_description: Project documentation with Markdown.
+site_author: MkDocs Team
+
+repo_url: https://github.com/mkdocs/mkdocs/
+edit_uri: blob/master/docs/
+docs_dir: source
+site_dir: docs
+
+nav:
+    - 主页: index.md
+    - 入门: getting-started.md
+    - 用户指引: user-guide/
+    - 开发指引: dev-guide/
+    - 关于:
+          - 发行说明: about/release-notes.md
+          - 贡献: about/contributing.md
+          - 证书: about/license.md
+
+extra_css:
+    - css/extra.css
+
+markdown_extensions:
+    - tables
+    - callouts
+    - mkdocs-click
+    - abbr
+    - admonition
+    - attr_list
+    - def_list
+    - footnotes
+    - md_in_html
+    - mdx_gh_links:
+          user: mkdocs
+          repo: mkdocs
+    - toc:
+          # permalink: 
+          permalink: true
+    - pymdownx.caret
+    - pymdownx.details
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.tilde
+    - pymdownx.magiclink
+    - pymdownx.arithmatex:
+          generic: true
+    - pymdownx.betterem:
+          smart_enable: all
+    - pymdownx.emoji:
+          emoji_generator: !!python/name:materialx.emoji.to_svg
+          emoji_index: !!python/name:materialx.emoji.twemoji
+    - pymdownx.highlight:
+          use_pygments: false
+          anchor_linenums: true
+          linenums: true
+    - pymdownx.magiclink:
+          repo_url_shorthand: true
+          user: squidfunk
+          repo: mkdocs-material
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tabbed:
+          alternate_style: true
+    - pymdownx.tasklist:
+          custom_checkbox: true
+
+copyright: Copyright &copy; 2014 <a href="https://twitter.com/_tomchristie">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.
+
+plugins:
+    - search
+    - redirects:
+          redirect_maps:
+              user-guide/plugins.md: dev-guide/plugins.md
+              user-guide/custom-themes.md: dev-guide/themes.md
+              user-guide/styling-your-docs.md: user-guide/choosing-your-theme.md
+    - autorefs
+    - literate-nav:
+          nav_file: README.md
+          implicit_index: true
+    - mkdocstrings:
+          handlers:
+              python:
+                  options:
+                      docstring_section_style: list
+                      members_order: source
+                      show_root_heading: true
+                      show_source: false
+                      show_signature_annotations: true
+
+watch:
+    - mkdocs
+
+theme:
+    # name: mkdocs
+    # locale: en
+    # analytics: { gtag: "G-274394082" }
+    # highlightjs: true
+    # hljs_languages:
+    #     - yaml
+    #     - django
+    name: material
+    # logo: images/icon.jpeg
+    # favicon: assets/favicons/favicon.ico
+    language: zh
+    # custom_dir: overrides
+    features:
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - navigation.tracking
+        - navigation.top
+        - navigation.indexes # 父菜单索引
+        # - navigation.sections # 全部展开
+        # - navigation.expand # 打开收缩
+        - content.code.annotate
+        - navigation.top # 返回头部
