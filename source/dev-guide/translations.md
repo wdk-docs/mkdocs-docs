@@ -21,7 +21,7 @@ MkDocs中包含的[内置主题][built-in themes]提供了翻译支持。
 [update themes]: ../about/contributing.md#submitting-changes-to-the-builtin-themes
 [configured]: themes.md#supporting-theme-localizationtranslation
 
-## Localization tooling prerequisites
+## 本地化工具先决条件
 
 Theme localization makes use of the [babel][babel] project for generation and
 compilation of localization files. You will need to be working from the
@@ -42,7 +42,7 @@ pip install mkdocs[i18n]
 [Install for Development]: ../about/contributing.md#installing-for-development
 [Submit a Pull Request]: ../about/contributing.md#submitting-pull-requests
 
-## Adding language translations to themes
+## 将语言翻译添加到主题
 
 If your favorite language locale is not yet supported on one (or both) of the
 built-in themes (`mkdocs` and `readthedocs`), you can easily contribute a
@@ -65,7 +65,7 @@ use of a term which differs from the general language translation.
 
 [ISO-639-1]: https://en.wikipedia.org/wiki/ISO_639-1
 
-### Initializing the localization catalogs
+### 初始化本地化目录
 
 The templates for each theme contain text placeholders that have been extracted
 into a Portable Object Template (`messages.pot`) file, which is present in each
@@ -96,7 +96,7 @@ You can now move on to the next step and [add a
 translation](#translating-the-mkdocs-themes) for every text placeholder in the
 localized catalog.
 
-## Updating a theme translation
+## 更新主题翻译
 
 If a theme's `messages.pot` template file has been [updated][update themes]
 since the `messages.po` was last updated for your locale, follow the steps
@@ -184,14 +184,13 @@ Finally, run `mkdocs serve` to check out your new localized version of the theme
 > After you have finished testing your work, be sure to undo the change to
 > the `locale` setting in the `mkdocs.yml` file before submitting your
 > changes.
-
-## Updating theme documentation
+##更新主题文档
 
 Update the lists of supported translations for each translated theme located at
 [Choosing your theme](../user-guide/choosing-your-theme.md)
 (`docs/user-guide/choosing-your-theme.md`), in their __`locale`__ options.
 
-## Contributing translations
+## 贡献翻译
 
 It is now time for you to [contribute](../about/contributing.md) your nice work
 to the project. Thank you!

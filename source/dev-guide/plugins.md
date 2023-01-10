@@ -1,43 +1,38 @@
 # MkDocs 插件
 
-A Guide to installing, using and creating MkDocs Plugins
+一个安装，使用和创建MkDocs插件的指南
 
 ---
 
-## Installing Plugins
+## 安装插件
 
-Before a plugin can be used, it must be installed on the system. If you are
-using a plugin which comes with MkDocs, then it was installed when you installed
-MkDocs. However, to install third party plugins, you need to determine the
-appropriate package name and install it using `pip`:
+在使用插件之前，必须在系统上安装该插件。
+如果你使用的是MkDocs自带的插件，那么它在你安装MkDocs的时候就已经安装了。
+但是，要安装第三方插件，您需要确定适当的包名并使用`pip`安装它:
 
 ```bash
 pip install mkdocs-foo-plugin
 ```
 
-Once a plugin has been successfully installed, it is ready to use. It just needs
-to be [enabled](#using-plugins) in the configuration file. The [MkDocs Plugins]
-wiki page has a growing list of plugins that you can install and use.
+一旦插件成功安装，它就可以使用了。
+它只需要在配置文件中[启用](#using-plugins)。
+[MkDocs 插件] wiki页面有一个不断增长的插件列表，您可以安装和使用。
 
-## Using Plugins
+## 使用插件
 
-The [`plugins`][config] configuration option should contain a list of plugins to
-use when building the site. Each "plugin" must be a string name assigned to the
-plugin (see the documentation for a given plugin to determine its "name"). A
-plugin listed here must already be [installed](#installing-plugins).
+[`插件`][config]配置选项应该包含在构建网站时使用的插件列表。
+每个“插件”必须是分配给该插件的字符串名称(请参阅给定插件的文档以确定其“名称”)。
+这里列出的插件必须已经[安装](#installing-plugins)。
 
 ```yaml
 plugins:
     - search
 ```
 
-Some plugins may provide configuration options of their own. If you would like
-to set any configuration options, then you can nest a key/value mapping
-(`option_name: option value`) of any options that a given plugin supports. Note
-that a colon (`:`) must follow the plugin name and then on a new line the option
-name and value must be indented and separated by a colon. If you would like to
-define multiple options for a single plugin, each option must be defined on a
-separate line.
+一些插件可能提供自己的配置选项。
+如果你想设置任何配置选项，那么你可以嵌套一个给定插件支持的任何选项的键/值映射(`option_name: option value`)。
+注意，插件名后面必须跟着冒号(`:`)，然后在新行中，选项名和值必须缩进并用冒号分隔。
+如果你想为一个插件定义多个选项，每个选项必须在单独的行中定义。
 
 ```yaml
 plugins:
@@ -46,27 +41,21 @@ plugins:
         foo: bar
 ```
 
-For information regarding the configuration options available for a given plugin,
-see that plugin's documentation.
+有关给定插件可用的配置选项的信息，请参阅该插件的文档。
 
-For a list of default plugins and how to override them, see the
-[configuration][config] documentation.
+有关默认插件的列表以及如何覆盖它们，请参阅[配置][config]文档。
 
-## Developing Plugins
+## 开发插件
 
-Like MkDocs, plugins must be written in Python. It is generally expected that
-each plugin would be distributed as a separate Python module, although it is
-possible to define multiple plugins in the same module. At a minimum, a MkDocs
-Plugin must consist of a [BasePlugin] subclass and an [entry point] which
-points to it.
+像MkDocs一样，插件必须用Python编写。尽管可以在同一个模块中定义多个插件，但通常期望每个插件都作为单独的Python模块发布。
+MkDocs Plugin至少必须包含一个[BasePlugin]子类和一个指向它的[入口点]。
 
 ### BasePlugin
 
-A subclass of `mkdocs.plugins.BasePlugin` should define the behavior of the plugin.
-The class generally consists of actions to perform on specific events in the build
-process as well as a configuration scheme for the plugin.
+`mkdocs.plugins.BasePlugin`的子类应该定义插件的行为。
+该类通常由构建过程中对特定事件执行的操作以及插件的配置方案组成。
 
-All `BasePlugin` subclasses contain the following attributes:
+所有`BasePlugin` 子类包含以下属性:
 
 #### config_scheme
 
@@ -86,21 +75,21 @@ class MyPlugin(mkdocs.plugins.BasePlugin):
     )
 ```
 
-> NEW: **New in version 1.4.**
->
-> ##### Subclassing `Config` to specify the config schema
->
-> To get type safety benefits, if you're targeting only MkDocs 1.4+, define the config schema as a class instead:
->
-> ```python
-> class MyPluginConfig(mkdocs.config.base.Config):
->     foo = mkdocs.config.config_options.Type(str, default='a default value')
->     bar = mkdocs.config.config_options.Type(int, default=0)
->     baz = mkdocs.config.config_options.Type(bool, default=True)
->
-> class MyPlugin(mkdocs.plugins.BasePlugin[MyPluginConfig]):
->     ...
-> ```
+!!! new "**New in version 1.4.**"
+
+    **Subclassing `Config` 指定配置模式**
+
+    为了获得类型安全的好处，如果你只针对MkDocs 1.4+，请将配置模式定义为一个类:
+
+    ```python
+    class MyPluginConfig(mkdocs.config.base.Config):
+        foo = mkdocs.config.config_options.Type(str, default='a default value')
+        bar = mkdocs.config.config_options.Type(int, default=0)
+        baz = mkdocs.config.config_options.Type(bool, default=True)
+
+    class MyPlugin(mkdocs.plugins.BasePlugin[MyPluginConfig]):
+        ...
+    ```
 
 ##### Examples of config definitions
 

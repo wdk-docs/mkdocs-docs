@@ -1,31 +1,29 @@
 # MkDocs
 
-Project documentation with&nbsp;Markdown.
+Markdown 的项目文档。
 
 ---
 
-MkDocs is a **fast**, **simple** and **downright gorgeous** static site
-generator that's geared towards building project documentation. Documentation
-source files are written in Markdown, and configured with a single YAML
-configuration file. Start by reading the [introductory tutorial], then check the
-[User Guide] for more information.
+MkDocs 是一个 **快速**，**简单** 和 **华丽的** 静态站点生成器，用于构建项目文档。
+文档源文件用 Markdown 编写，并使用单个 YAML 配置文件进行配置。
+首先阅读[入门教程]，然后查看[用户指南]以获得更多信息。
 
-[introductory tutorial]: getting-started.md
-[User Guide]: user-guide/README.md
+[入门教程]: getting-started.md
+[用户指南]: user-guide/README.md
 
 <div class="text-center">
-<a href="getting-started/" class="btn btn-primary" role="button">Getting Started</a>
-<a href="user-guide/" class="btn btn-primary" role="button">User Guide</a>
+  <a href="getting-started/" class="btn btn-primary" role="button">入门</a>
+  <a href="user-guide/" class="btn btn-primary" role="button">用户指南</a>
 </div>
 
 <div class="jumbotron">
-<h2 class="display-4 text-center">Features</h2>
+<h2 class="display-4 text-center">特征</h2>
 
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Great themes available</h3>
+        <h3 class="card-title">很棒的主题</h3>
         <p class="card-text">
             There's a stack of good looking <a
             href="user-guide/choosing-your-theme">themes</a> available for
@@ -43,7 +41,7 @@ configuration file. Start by reading the [introductory tutorial], then check the
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Easy to customize</h3>
+        <h3 class="card-title">易于自定义</h3>
         <p class="card-text">
             Get your project documentation looking just the way you want it by
             <a href="user-guide/customizing-your-theme/">customizing your
@@ -64,7 +62,7 @@ configuration file. Start by reading the [introductory tutorial], then check the
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Preview your site as you work</h3>
+        <h3 class="card-title">在工作时预览您的网站</h3>
         <p class="card-text">
             The built-in dev-server allows you to preview your documentation
             as you're writing it. It will even auto-reload and refresh your
@@ -76,7 +74,7 @@ configuration file. Start by reading the [introductory tutorial], then check the
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Host anywhere</h3>
+        <h3 class="card-title">托管在任何地方</h3>
         <p class="card-text">
             MkDocs builds completely static HTML sites that you can host on
             GitHub pages, Amazon S3, or <a

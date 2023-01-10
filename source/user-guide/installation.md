@@ -1,10 +1,10 @@
-# MkDocs Installation
+# MkDocs 安装
 
-A detailed guide.
+详细指南。
 
 ---
 
-## Requirements
+## 要求
 
 MkDocs requires a recent version of [Python] and the Python package
 manager, [pip], to be installed on your system.
@@ -21,7 +21,7 @@ pip 20.0.2 from /usr/local/lib/python3.8/site-packages/pip (python 3.8)
 If you already have those packages installed, you may skip down to [Installing
 MkDocs](#installing-mkdocs).
 
-### Installing Python
+### 安装 Python
 
 Install [Python] using your package manager of choice, or by downloading an
 installer appropriate for your system from [python.org] and running it.
@@ -33,7 +33,7 @@ installer appropriate for your system from [python.org] and running it.
 >
 > ![Add Python to PATH](../img/win-py-install.png)
 
-### Installing pip
+### 安装 pip
 
 If you're using a recent version of Python, the Python package manager, [pip],
 is most likely installed by default. However, you may need to upgrade pip to the
@@ -50,7 +50,7 @@ Then run the following command to install it:
 python get-pip.py
 ```
 
-## Installing MkDocs
+## 安装 MkDocs
 
 Install the `mkdocs` package using pip:
 

@@ -1,10 +1,10 @@
-# Getting Started with MkDocs
+# Mkdocs 入门
 
-An introductory tutorial!
+入门教程！
 
 ---
 
-## Installation
+## 安装
 
 To install MkDocs, run the following command from the command line:
 
@@ -14,7 +14,7 @@ pip install mkdocs
 
 For more details, see the [Installation Guide].
 
-## Creating a new project
+## 创建一个新项目
 
 Getting started is super easy. To create a new project, run the following
 command from the command line:
@@ -81,7 +81,7 @@ value: `https://example.com`. If the final location is known, you can change
 the setting now to point to it. Or you may choose to leave it alone for now.
 Just be sure to edit it before you deploy your site to a production server.
 
-## Adding pages
+## 添加页面
 
 Now add a second page to your documentation:
 
@@ -117,7 +117,7 @@ part!
 
 ![Screenshot](img/search.png)
 
-## Theming our documentation
+## 为文档设置主题
 
 Now change the configuration file to alter how the documentation is displayed by
 changing the theme. Edit the `mkdocs.yml` file and add a [`theme`][theme] setting:
@@ -135,16 +135,16 @@ Save your changes, and you'll see the ReadTheDocs theme being used.
 
 ![Screenshot](img/readthedocs.png)
 
-## Changing the Favicon Icon
+## 更改 Favicon 图标
 
 By default, MkDocs uses the [MkDocs favicon] icon. To use a different icon, create
 an `img` subdirectory in the `docs` directory and copy your custom `favicon.ico`
 file to that directory. MkDocs will automatically detect and use that file as your
 favicon icon.
 
-[MkDocs favicon]: img/favicon.ico
+[mkdocs favicon]: img/favicon.ico
 
-## Building the site
+## 构建网站
 
 That's looking good. You're ready to deploy the first pass of your `MkLorum`
 documentation. First build the documentation:
@@ -178,7 +178,7 @@ echo "site/" >> .gitignore
 If you're using another source code control tool you'll want to check its
 documentation on how to ignore specific directories.
 
-## Other Commands and Options
+## 其他命令和选项
 
 There are various other commands and options available. For a complete list of
 commands, use the `--help` flag:
@@ -195,7 +195,7 @@ with that command. For example, to get a list of all options available for the
 mkdocs build --help
 ```
 
-## Deploying
+## 部署
 
 The documentation site that you just built only uses static files so you'll be
 able to host it from pretty much anywhere. Simply upload the contents of the
@@ -203,19 +203,19 @@ entire `site` directory to wherever you're hosting your website from and
 you're done. For specific instructions on a number of common hosts, see the
 [Deploying your Docs][deploy] page.
 
-## Getting help
+## 得到帮助
 
 See the [User Guide] for more complete documentation of all of MkDocs' features.
 
 To get help with MkDocs, please use the [GitHub discussions] or [GitHub issues].
 
-[Installation Guide]: user-guide/installation.md
+[安装指南]: user-guide/installation.md
 [docs_dir]: user-guide/configuration.md#docs_dir
-[deploy]: user-guide/deploying-your-docs.md
+[部署]: user-guide/deploying-your-docs.md
 [nav]: user-guide/configuration.md#nav
-[GitHub discussions]: https://github.com/mkdocs/mkdocs/discussions
-[GitHub issues]: https://github.com/mkdocs/mkdocs/issues
+[github 讨论]: https://github.com/mkdocs/mkdocs/discussions
+[github 问题]: https://github.com/mkdocs/mkdocs/issues
 [site_name]: user-guide/configuration.md#site_name
 [site_url]: user-guide/configuration.md#site_url
-[theme]: user-guide/configuration.md#theme
-[User Guide]: user-guide/README.md
+[主题]: user-guide/configuration.md#theme
+[用户指南]: user-guide/README.md

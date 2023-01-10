@@ -1,6 +1,6 @@
 # 自定义您的主题
 
-Altering a theme to suit your needs.
+更改主题以满足您的需求。
 
 ---
 
@@ -10,7 +10,7 @@ some CSS and/or JavaScript, you can [use the docs_dir](#using-the-docs_dir).
 However, for more complex customizations, including overriding templates, you
 will need to [use the theme custom_dir](#using-the-theme-custom_dir) setting.
 
-## Using the docs_dir
+## 使用 docs_dir
 
 The [extra_css] and [extra_javascript] configuration options can be used to
 make tweaks and customizations to existing themes. To use these, you simply
@@ -46,7 +46,7 @@ document after the page content. If you desire to include a JavaScript
 library, you may have better success including the library by using the
 theme [custom_dir].
 
-## Using the theme custom_dir
+## 使用主题 custom_dir
 
 The [`theme.custom_dir`][custom_dir] configuration option can be used to point
 to a directory of files which override the files in a parent theme. The parent

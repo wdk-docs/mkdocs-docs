@@ -1,6 +1,6 @@
 # 本地主题
 
-Display your theme in your preferred language.
+用您首选的语言显示主题。
 
 ---
 

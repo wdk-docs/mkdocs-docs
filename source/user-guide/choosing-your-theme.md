@@ -1,6 +1,6 @@
 # 选择您的主题
 
-Selecting and configuring a theme.
+选择和配置主题。
 
 ---
 

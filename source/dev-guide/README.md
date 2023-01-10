@@ -1,18 +1,16 @@
 # 开发人员指南
 
-Extending MkDocs
+扩展 MkDocs
 
 ---
 
-The MkDocs Developer Guide provides documentation for developers of third
-party themes and plugins. Please see the [Contributing Guide] for information
-on contributing to MkDocs itself. You can jump directly to a page listed
-below, or use the *next* and *previous* buttons in the navigation bar at the
-top of the page to move through the documentation in order.
+MkDocs开发者指南为第三方主题和插件的开发者提供了文档。
+请参阅[贡献指南][Contributing Guide]了解如何贡献MkDocs本身。
+您可以直接跳转到下面列出的页面，或者使用页面顶部导航栏中的 *next* 和 *previous* 按钮按顺序浏览文档。
 
-- [Themes](themes.md)
-- [Translations](translations.md)
-- [Plugins](plugins.md)
-- [API Reference](api.md)
+- [主题](themes.md)
+- [翻译](translations.md)
+- [插件](plugins.md)
+- [API 参考](api.md)
 
 [Contributing Guide]: ../about/contributing.md

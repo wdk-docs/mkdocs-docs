@@ -1,18 +1,15 @@
-# 写你的文档
+# 撰写文档
 
-How to layout and write your Markdown source files.
+如何布局和编写 Markdown 源文件。
 
 ---
 
-## File layout
+## 文件布局
 
-Your documentation source should be written as regular Markdown files (see
-[Writing with Markdown](#writing-with-markdown) below), and placed in the
-[documentation directory](configuration.md#docs_dir). By default, this directory
-will be named `docs` and will exist at the top level of your project, alongside
-the `mkdocs.yml` configuration file.
+你的文档源应该被写成常规 Markdown 文件(参见下面的[用 Markdown 写作](#writing-with-markdown))，并放在[文档目录](configuration.md#docs_dir)中。
+默认情况下，这个目录将被命名为`docs`，并将与`mkdocs.yml`配置文件一起存在于项目的顶层。
 
-The simplest project you can create will look something like this:
+你可以创建的最简单的项目是这样的:
 
 ```text
 mkdocs.yml
@@ -20,20 +17,15 @@ docs/
     index.md
 ```
 
-By convention your project homepage should be named `index.md` (see [Index
-pages](#index-pages) below for details). Any of the following file
-extensions may be used for your Markdown source files: `markdown`, `mdown`,
-`mkdn`, `mkd`, `md`. All Markdown files included in your documentation
-directory will be rendered in the built site regardless of any settings.
+按照惯例，您的项目主页应该命名为`index.md`(参见下面的[索引页](#index-pages)了解详细信息)。
+以下任何文件扩展名都可以用于 Markdown 源文件:`markdown`, `mdown`, `mkdn`, `mkd`, `md`。
+文档目录中包含的所有 Markdown 文件将在构建的站点中呈现，无论任何设置。
 
 NOTE:
-Files and directories with names which begin with a dot (for example:
-`.foo.md` or `.bar/baz.md`) are ignored by MkDocs, which matches the
-behavior of most web servers. There is no option to override this
-behavior.
+名称以点开头的文件和目录(例如:`.foo.md` 或 `.bar/baz.md`)会被 MkDocs 忽略，这与大多数 web 服务器的行为相匹配。
+没有覆盖此行为的选项。
 
-You can also create multi-page documentation, by creating several Markdown
-files:
+你也可以创建多页文档，通过创建几个 Markdown 文件:
 
 ```text
 mkdocs.yml
@@ -43,8 +35,8 @@ docs/
     license.md
 ```
 
-The file layout you use determines the URLs that are used for the generated
-pages. Given the above layout, pages would be generated for the following URLs:
+您使用的文件布局决定了所生成页面所使用的 URLs。
+根据上面的布局，将为以下 URLs 生成页面:
 
 ```text
 /
@@ -52,8 +44,7 @@ pages. Given the above layout, pages would be generated for the following URLs:
 /license/
 ```
 
-You can also include your Markdown files in nested directories if that better
-suits your documentation layout.
+如果更适合你的文档布局，你也可以将 Markdown 文件包含在嵌套目录中。
 
 ```text
 docs/
@@ -63,8 +54,7 @@ docs/
     license.md
 ```
 
-Source files inside nested directories will cause pages to be generated with
-nested URLs, like so:
+嵌套目录中的源文件将导致生成带有嵌套 URLs 的页面，如下所示:
 
 ```text
 /
@@ -73,31 +63,22 @@ nested URLs, like so:
 /license/
 ```
 
-Any files which are not identified as Markdown files (by their file extension)
-within the [documentation directory](configuration.md#docs_dir) are copied by
-MkDocs to the built site unaltered. See
-[how to link to images and media](#linking-to-images-and-media) below for details.
+在[文档目录](configuration.md#docs_dir)中，任何没有被标识为 Markdown 文件(通过其文件扩展名)的文件都会被 MkDocs 复制到构建的站点中。
+详情见下面[如何链接到图片和媒体](#linking-to-images-and-media)。
 
-### Index pages
+### 索引页
 
-When a directory is requested, by default, most web servers will return an index
-file (usually named `index.html`) contained within that directory if one exists.
-For that reason, the homepage in all of the examples above has been named
-`index.md`, which MkDocs will render to `index.html` when building the site.
+当一个目录被请求时，默认情况下，大多数 web 服务器将返回一个包含在该目录中的索引文件(通常命名为`index.html`)，如果目录存在的话。
+因此，上面所有示例中的主页都被命名为`index.md`， MkDocs 在构建网站时将其呈现为`index.html`。
 
-Many repository hosting sites provide special treatment for README files by
-displaying the contents of the README file when browsing the contents of a
-directory. Therefore, MkDocs will allow you to name your index pages as
-`README.md` instead of `index.md`. In that way, when users are browsing your
-source code, the repository host can display the index page of that directory as
-it is a README file. However, when MkDocs renders your site, the file will be
-renamed to `index.html` so that the server will serve it as a proper index file.
+许多存储库托管站点通过在浏览目录内容时显示 README 文件的内容，为 README 文件提供了特殊处理。
+因此，MkDocs 将允许您将索引页命名为`README.md`而不是`index.md`。
+这样，当用户浏览您的源代码时，存储库主机可以显示该目录的索引页，因为它是一个 README 文件。
+然而，当 MkDocs 呈现你的网站时，文件将被重命名为`index.html`，以便服务器将其作为一个适当的索引文件。
 
-If both an `index.md` file and a `README.md` file are found in the same
-directory, then the `index.md` file is used and the `README.md` file is
-ignored.
+如果在同一个目录中发现`index.md`文件和`README.md`文件，则使用`index.md`文件，而`README.md`文件被忽略。
 
-### Configure Pages and Navigation
+### 配置页面和导航
 
 The [nav](configuration.md#nav) configuration setting in your `mkdocs.yml` file
 defines which pages are included in the global site navigation menu as well as
@@ -168,31 +149,26 @@ included with the built site, however, they will not be linked from the global
 navigation and will not be included in the `previous` and `next` links. Such
 pages will be "hidden" unless linked to directly.
 
-## Writing with Markdown
+## 用 Markdown 写作
 
-MkDocs pages must be authored in [Markdown][md], a lightweight markup language
-which results in easy-to-read, easy-to-write plain text documents that can be
-converted to valid HTML documents in a predictable manner.
+MkDocs 页面必须使用[Markdown][md]编写，这是一种轻量级标记语言，可生成易于阅读、易于编写的纯文本文档，可以以可预测的方式将其转换为有效的 HTML 文档。
 
-MkDocs uses the [Python-Markdown] library to render Markdown documents to HTML.
-Python-Markdown is almost completely compliant with the [reference
-implementation][md], although there are a few very minor [differences].
+MkDocs 使用[Python-Markdown]库将 Markdown 文档呈现为 HTML。
+Python-Markdown 几乎完全符合[参考实现][md]，尽管有一些非常小的[差异]。
 
-In addition to the base Markdown [syntax] which is common across all Markdown
-implementations, MkDocs includes support for extending the Markdown syntax with
-Python-Markdown [extensions]. See the MkDocs' [markdown_extensions]
-configuration setting for details on how to enable extensions.
+除了在所有 Markdown 实现中通用的基本 Markdown[语法]之外，MkDocs 还支持使用 Python-Markdown[扩展]扩展 Markdown 语法。
+关于如何启用扩展，请参阅 MkDocs 的[markdown_extensions]配置设置。
 
-MkDocs includes some extensions by default, which are highlighted below.
+MkDocs 默认包含一些扩展，如下所示。
 
 [python-markdown]: https://python-markdown.github.io/
 [md]: https://daringfireball.net/projects/markdown/
-[differences]: https://python-markdown.github.io/#differences
-[syntax]: https://daringfireball.net/projects/markdown/syntax
-[extensions]: https://python-markdown.github.io/extensions/
+[差异]: https://python-markdown.github.io/#differences
+[语法]: https://daringfireball.net/projects/markdown/syntax
+[扩展]: https://python-markdown.github.io/extensions/
 [markdown_extensions]: configuration.md#markdown_extensions
 
-### Internal links
+### 内部链接
 
 MkDocs allows you to interlink your documentation by using regular Markdown
 [links]. However, there are a few additional benefits to formatting those links
@@ -200,7 +176,7 @@ specifically for MkDocs as outlined below.
 
 [links]: https://daringfireball.net/projects/markdown/syntax#link
 
-#### Linking to pages
+#### 链接到页面
 
 When linking between pages in the documentation you can simply use the regular
 Markdown [linking][links] syntax, including the _relative path_ to the Markdown
@@ -214,34 +190,28 @@ When the MkDocs build runs, these Markdown links will automatically be
 transformed into an HTML hyperlink to the appropriate HTML page.
 
 WARNING:
-Using absolute paths with links is not officially supported. Relative paths
-are adjusted by MkDocs to ensure they are always relative to the page. Absolute
-paths are not modified at all. This means that your links using absolute paths
-might work fine in your local environment but they might break once you deploy
-them to your production server.
+官方不支持使用带有链接的绝对路径。相对路径由 MkDocs 调整，以确保它们始终相对于页面。
+绝对路径根本不需要修改。
+这意味着使用绝对路径的链接可能在本地环境中正常工作，但一旦将它们部署到生产服务器上，它们可能会中断。
 
-If the target documentation file is in another directory you'll need to make
-sure to include any relative directory path in the link.
+如果目标文档文件在另一个目录中，则需要确保在链接中包含任何相对目录路径。
 
 ```markdown
 Please see the [project license](../about/license.md) for further details.
 ```
 
-The [toc] extension is used by MkDocs to generate an ID for every header in your
-Markdown documents. You can use that ID to link to a section within a target
-document by using an anchor link. The generated HTML will correctly transform
-the path portion of the link, and leave the anchor portion intact.
+MkDocs 使用[toc]扩展为 Markdown 文档中的每个标题生成 ID。
+您可以使用该 ID 通过使用锚链接链接到目标文档中的某个部分。
+生成的 HTML 将正确地转换链接的路径部分，而保持锚的部分不变。
 
 ```markdown
 Please see the [project license](about.md#license) for further details.
 ```
 
-Note that IDs are created from the text of a header. All text is converted to
-lowercase and any disallowed characters, including white-space, are converted to
-dashes. Consecutive dashes are then reduced to a single dash.
+Note that IDs are created from the text of a header.
+All text is converted to lowercase and any disallowed characters, including white-space, are converted to dashes. Consecutive dashes are then reduced to a single dash.
 
-There are a few configuration settings provided by the toc extension which you
-can set in your `mkdocs.yml` configuration file to alter the default behavior:
+There are a few configuration settings provided by the toc extension which you can set in your `mkdocs.yml` configuration file to alter the default behavior:
 
 -   **`permalink`**
 
@@ -289,9 +259,7 @@ can set in your `mkdocs.yml` configuration file to alter the default behavior:
               separator: "_"
     ```
 
-Note that if you would like to define multiple of the above settings, you must
-do so under a single `toc` entry in the `markdown_extensions` configuration
-option.
+Note that if you would like to define multiple of the above settings, you must do so under a single `toc` entry in the `markdown_extensions` configuration option.
 
 ```yml
 markdown_extensions:
@@ -303,15 +271,11 @@ markdown_extensions:
 
 [toc]: https://python-markdown.github.io/extensions/toc/
 
-#### Linking to images and media
+#### 链接到图像和媒体
 
-As well as the Markdown source files, you can also include other file types in
-your documentation, which will be copied across when generating your
-documentation site. These might include images and other media.
+As well as the Markdown source files, you can also include other file types in your documentation, which will be copied across when generating your documentation site. These might include images and other media.
 
-For example, if your project documentation needed to include a [GitHub pages
-CNAME file] and a PNG formatted screenshot image then your file layout might
-look as follows:
+For example, if your project documentation needed to include a [GitHub pages CNAME file] and a PNG formatted screenshot image then your file layout might look as follows:
 
 ```text
 mkdocs.yml
@@ -338,65 +302,58 @@ Cupcake indexer is a snazzy new project for indexing small cakes.
 Your image will now be embedded when you build the documentation, and should
 also be previewed if you're working on the documentation with a Markdown editor.
 
-[github pages cname file]: https://help.github.com/articles/using-a-custom-domain-with-github-pages/
+[github页面cname文件]: https://help.github.com/articles/using-a-custom-domain-with-github-pages/
 
-#### Linking from raw HTML
+#### 从 RAW HTML 链接
 
-Markdown allows document authors to fall back to raw HTML when the Markdown
-syntax does not meets the author's needs. MkDocs does not limit Markdown in this
-regard. However, as all raw HTML is ignored by the Markdown parser, MkDocs is
-not able to validate or convert links contained in raw HTML. When including
-internal links within raw HTML, you will need to manually format the link
-appropriately for the rendered document.
+Markdown 允许文档作者在 Markdown 语法不能满足作者需求时使用原始 HTML。
+MkDocs 并没有在这方面限制 Markdown。
+然而，由于 Markdown 解析器忽略了所有原始 HTML, MkDocs 无法验证或转换原始 HTML 中包含的链接。
+在原始 HTML 中包含内部链接时，需要为呈现的文档手动设置适当的链接格式。
 
-### Meta-Data
+<a id="Meta-Data"></a>
 
-MkDocs includes support for both YAML and MultiMarkdown style meta-data (often
-called front-matter). Meta-data consists of a series of keywords and values
-defined at the beginning of a Markdown document, which are stripped from the
-document prior to it being processing by Python-Markdown. The key/value pairs
-are passed by MkDocs to the page template. Therefore, if a theme includes
-support, the values of any keys can be displayed on the page or used to control
-the page rendering. See your theme's documentation for information about which
-keys may be supported, if any.
+### 元数据
 
-In addition to displaying information in a template, MkDocs includes support for
-a few predefined meta-data keys which can alter the behavior of MkDocs for that
-specific page. The following keys are supported:
+MkDocs 同时支持 YAML 和 MultiMarkdown 风格的元数据(通常称为 front-matter)。
+元数据由 Markdown 文档开头定义的一系列关键字和值组成，这些关键字和值从 Markdown 文档中剥离
+文档在被 Python-Markdown 处理之前。
+键/值对由 MkDocs 传递给页面模板。
+因此，如果主题包含支持，则任何键的值都可以显示在页面上或用于控制页面呈现。
+如果有的话，请参阅您的主题文档以获得有关可能支持哪些键的信息。
+
+除了在模板中显示信息外，MkDocs 还支持一些预定义的元数据键，这些元数据键可以改变 MkDocs 对于特定页面的行为。
+支持以下按键:
 
 -   **`template`**
 
-    The template to use with the current page.
+    与当前页面一起使用的模板。
 
-    By default, MkDocs uses the `main.html` template of a theme to render
-    Markdown pages. You can use the `template` meta-data key to define a
-    different template file for that specific page. The template file must be
-    available on the path(s) defined in the theme's environment.
+    默认情况下，MkDocs 使用主题的`main.html`模板来渲染 Markdown 页面。
+    您可以使用`template`元数据键为特定页面定义不同的模板文件。
+    模板文件必须在主题环境中定义的路径上可用。
 
 -   **`title`**
 
-    The "title" to use for the document.
+    用于文档的"title"。
 
-    MkDocs will attempt to determine the title of a document in the following
-    ways, in order:
+    MkDocs 将尝试按以下顺序确定文档的标题:
 
-    1. A title defined in the [nav] configuration setting for a document.
-    2. A title defined in the `title` meta-data key of a document.
-    3. A level 1 Markdown header on the first line of the document body. Please note that [Setext-style] headers are not supported.
-    4. The filename of a document.
+    1. 在文档的[nav]配置设置中定义的标题。
+    2. 定义在文档的`title`元数据键中的标题。
+    3. 文档正文第一行上的一级 Markdown 标头。请注意，不支持[Setext-style]报头。
+    4. 文件的文件名。
 
-    Upon finding a title for a page, MkDoc does not continue checking any
-    additional sources in the above list.
+    在找到一个页面的标题后，MkDoc 不会继续检查上面列表中的任何其他来源。
 
 [setext-style]: https://daringfireball.net/projects/markdown/syntax#header
 
 #### YAML Style Meta-Data
 
-YAML style meta-data consists of [YAML] key/value pairs wrapped in YAML style
-delimiters to mark the start and/or end of the meta-data. The first line of
-a document must be `---`. The meta-data ends at the first line containing an
-end deliminator (either `---` or `...`). The content between the delimiters is
-parsed as [YAML].
+YAML 风格的元数据由[YAML]键/值对组成，它们被包装在 YAML 风格的分隔符中，用来标记元数据的开始和/或结束。
+文档的第一行必须是`---`。
+元数据在包含结束分隔符(`---` 或 `...`)的第一行结束。
+分隔符之间的内容被解析为[YAML]。
 
 ```text
 ---
@@ -411,21 +368,16 @@ some_url: https://example.com
 This is the first paragraph of the document.
 ```
 
-YAML is able to detect data types. Therefore, in the above example, the values
-of `title`, `summary` and `some_url` are strings, the value of `authors` is a
-list of strings and the value of `date` is a `datetime.date` object. Note that
-the YAML keys are case sensitive and MkDocs expects keys to be all lowercase.
-The top level of the YAML must be a collection of key/value pairs, which results
-in a Python `dict` being returned. If any other type is returned or the YAML
-parser encounters an error, then MkDocs does not recognize the section as
-meta-data, the page's `meta` attribute will be empty, and the section is not
-removed from the document.
+YAML 能够检测数据类型。
+因此，在上面的例子中，`title`, `summary` 和 `some_url`的值是字符串，`authors`的值是字符串列表，`date`的值是一个`datetime.date`对象。
+注意，YAML 键是区分大小写的，MkDocs 希望键都是小写的。
+YAML 的顶层必须是键/值对的集合，这将导致返回 Python `dict`。
+如果返回任何其他类型，或者 YAML 解析器遇到错误，那么 MkDocs 不会将该节识别为元数据，页面的`meta`属性将为空，并且该节不会从文档中删除。
 
 #### MultiMarkdown Style Meta-Data
 
-MultiMarkdown style meta-data uses a format first introduced by the
-[MultiMarkdown] project. The data consists of a series of keywords and values
-defined at the beginning of a Markdown document, like this:
+MultiMarkdown 风格的元数据使用[MultiMarkdown]项目首次引入的格式。
+数据由 Markdown 文档开头定义的一系列关键字和值组成，如下所示:
 
 ```text
 Title:   My Document
@@ -439,25 +391,19 @@ some_url: https://example.com
 This is the first paragraph of the document.
 ```
 
-The keywords are case-insensitive and may consist of letters, numbers,
-underscores and dashes and must end with a colon. The values consist of anything
-following the colon on the line and may even be blank.
+关键字不区分大小写，可以由字母、数字、`_`和`-`组成，且必须以冒号结尾。
+这些值由行中冒号后面的任何内容组成，甚至可以为空。
 
-If a line is indented by 4 or more spaces, that line is assumed to be an
-additional line of the value for the previous keyword. A keyword may have as
-many lines as desired. All lines are joined into a single string.
+如果一行缩进了 4 个或更多空格，则假定该行是前一个关键字值的附加行。
+关键字可以有任意多的行。所有的行都连接成一个字符串。
 
-The first blank line ends all meta-data for the document. Therefore, the first
-line of a document must not be blank.
+第一个空行结束文档的所有元数据。
+因此，文档的第一行不能为空。
 
 NOTE:
-MkDocs does not support YAML style delimiters (`---` or `...`) for
-MultiMarkdown style meta-data. In fact, MkDocs relies on the the presence or
-absence of the delimiters to determine whether YAML style meta-data or
-MultiMarkdown style meta-data is being used. If the delimiters are
-detected, but the content between the delimiters is not valid YAML
-meta-data, MkDocs does not attempt to parse the content as MultiMarkdown
-style meta-data.
+对于 MultiMarkdown 风格的元数据，MkDocs 不支持 YAML 风格的分隔符(`---` 或 `...`)。
+事实上，MkDocs 依赖于分隔符的存在或不存在来确定是否使用 YAML 风格的元数据或 MultiMarkdown 风格的元数据。
+如果检测到分隔符，但分隔符之间的内容不是有效的 YAML 元数据，MkDocs 不会尝试将内容解析为 MultiMarkdown 风格的元数据。
 
 [yaml]: http://yaml.org
 [multimarkdown]: http://fletcherpenney.net/MultiMarkdown_Syntax_Guide#metadata

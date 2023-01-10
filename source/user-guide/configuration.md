@@ -1,18 +1,18 @@
 # 配置
 
-Guide to all available configuration settings.
+指南所有可用的配置设置。
 
 ---
 
-## Introduction
+## 介绍
 
-Project settings are configured by default using a YAML configuration file in
-the project directory named `mkdocs.yml`. You can specify another path for it
-by using the `-f`/`--config-file` option (see `mkdocs build --help`).
+项目设置默认使用项目目录下名为`mkdocs.yml`的 YAML 配置文件进行配置。
+你可以通过使用`-f`/`--config-file`选项为它指定另一个路径(参见`mkdocs build --help`)。
 
-As a minimum, this configuration file must contain the `site_name`. All other settings are optional.
+至少，这个配置文件必须包含 **`site_name`**。
+所有其他设置都是 _可选_ 的。
 
-## Project information
+## 项目信息
 
 ### site_name
 
@@ -232,12 +232,12 @@ This option can be overridden by a command line option in `gh-deploy`.
 
 **default**: `origin`
 
-## Documentation layout
+## 文档导航
 
 ### nav
 
-This setting is used to determine the format and layout of the global navigation
-for the site. A minimal navigation configuration could look like this:
+此设置用于确定站点全局导航的格式和布局。
+一个最小的导航配置应该是这样的:
 
 ```yaml
 nav:
@@ -245,16 +245,14 @@ nav:
     - "about.md"
 ```
 
-All paths in the navigation configuration must be relative to the
-[`docs_dir`](#docs_dir) configuration option. See the section on [configuring
-pages and navigation] for a more detailed breakdown, including how to create
-sub-sections.
+导航配置中的所有路径必须相对于[`docs_dir`](#docs_dir) 配置选项。
+请参阅[配置页面和导航][configuring pages and navigation]一节，了解更详细的细分，包括如何创建子节。
 
-Navigation items may also include links to external sites. While titles are
-optional for internal links, they are required for external links. An external
-link may be a full URL or a relative URL. Any path which is not found in the
-files is assumed to be an external link. See the section about [Meta-Data] on
-how MkDocs determines the page title of a document.
+导航项也可以包括到外部站点的链接。
+虽然标题对于内部链接是可选的，但是对于外部链接是必需的。
+外部链接可以是完整 URL，也可以是相对 URL。
+在文件中没有找到的任何路径都被认为是外部链接。
+关于 MkDocs 如何确定文档的页面标题，请参阅[Meta-Data]部分。
 
 ```yaml
 nav:
@@ -263,12 +261,10 @@ nav:
     - "Issue Tracker": "https://example.com/"
 ```
 
-In the above example, the first two items point to local files while the third
-points to an external site.
+在上面的示例中，前两项指向本地文件，而第三项指向外部站点。
 
-However, sometimes the MkDocs site is hosted in a subdirectory of a project's
-site and you may want to link to other parts of the same site without including
-the full domain. In that case, you may use an appropriate relative URL.
+然而，有时 MkDocs 站点托管在项目站点的子目录中，您可能希望链接到同一站点的其他部分而不包括完整的域。
+在这种情况下，您可以使用适当的相对 URL。
 
 ```yaml
 site_url: https://example.com/foo/
@@ -279,29 +275,29 @@ nav:
     - "Bug Tracker": "/bugs/"
 ```
 
-In the above example, two different styles of external links are used. First,
-note that the `site_url` indicates that the MkDocs site is hosted in the `/foo/`
-subdirectory of the domain. Therefore, the `Home` navigation item is a relative
-link that steps up one level to the server root and effectively points to
-`https://example.com/`. The `Bug Tracker` item uses an absolute path from the
-server root and effectively points to `https://example.com/bugs/`. Of course, the
-`User Guide` points to a local MkDocs page.
+在上面的例子中，使用了两种不同风格的外部链接。
+首先，请注意`site_url`表示 MkDocs 站点托管在域的`/foo/`子目录中。
 
-**default**: By default `nav` will contain an alphanumerically sorted, nested
-list of all the Markdown files found within the `docs_dir` and its
-sub-directories. Index files will always be listed first within a sub-section.
+因此，`Home`导航项是一个相对链接，它上一级到服务器根目录，有效地指向`https://example.com/`。
 
-## Build directories
+`Bug Tracker`项使用了来自服务器根目录的绝对路径，有效地指向`https://example.com/bugs/`。
+
+当然，`User Guide`指向一个本地 MkDocs 页面。
+
+**default**: 默认情况下，`nav` 将包含在`docs_dir`及其子目录中找到的所有 Markdown 文件的字母数字排序嵌套列表。
+索引文件总是在子节中列在前面。
+
+## 建立目录
 
 ### theme
 
-Sets the theme and theme specific configuration of your documentation site.
-May be either a string or a set of key/value pairs.
+设置文档站点的主题和特定于主题的配置。
+可以是字符串，也可以是一组键/值对。
 
-If a string, it must be the string name of a known installed theme. For a list
-of available themes visit [Choosing Your Theme].
+如果是字符串，则必须是已知已安装主题的字符串名称。
+如需可用主题列表，请访问[选择您的主题][choosing your theme]。
 
-An example set of key/value pairs might look something like this:
+一个键/值对的例子可能是这样的:
 
 ```yaml
 theme:
@@ -430,9 +426,9 @@ extra:
 
 **default**: By default `extra` will be an empty key-value mapping.
 
-## Preview controls
+## 预览控件
 
-## Live Reloading
+## 现场重装
 
 ### watch
 
@@ -498,7 +494,7 @@ Allows a custom default to be set without the need to pass it through the
 
 See also: [site_url](#site_url).
 
-## Formatting options
+## 格式选项
 
 ### markdown_extensions
 
@@ -803,8 +799,7 @@ plugins:
 | `titles`   | Indexes only the title of each page.                             |
 
 **default**: `full`
-
-## Environment Variables
+＃＃ 环境变量
 
 In most cases, the value of a configuration option is set directly in the
 configuration file. However, as an option, the value of a configuration option
@@ -841,24 +836,19 @@ cannot be defined within a single environment variable.
 For more details, see the [pyyaml_env_tag](https://github.com/waylan/pyyaml-env-tag)
 project.
 
-## Configuration Inheritance
+## 配置继承
 
-Generally, a single file would hold the entire configuration for a site.
-However, some organizations may maintain multiple sites which all share a common
-configuration across them. Rather than maintaining separate configurations for
-each, the common configuration options can be defined in a parent configuration
-file which each site's primary configuration file inherits.
+通常，单个文件将保存站点的整个配置。
+然而，一些组织可能维护多个站点，这些站点之间共享一个公共配置。
+公共配置选项可以在父配置文件中定义，每个站点的主配置文件将继承该配置文件，而不是为每个站点维护单独的配置。
 
-To define the parent for a configuration file, set the `INHERIT` (all caps) key
-to the path of the parent file. The path must be relative to the location of the
-primary file.
+要为配置文件定义父文件，请将`INHERIT`(全大写)键设置为父文件的路径。
+路径必须相对于主文件的位置。
 
-For configuration options to be merged with a parent configuration, those
-options must be defined as key/value pairs. Specifically, the
-[markdown_extensions] and [plugins](#plugins) options must use the alternative syntax
-which does not use list items (lines which start with `-`).
+对于要与父配置合并的配置选项，必须将这些选项定义为键/值对。
+具体来说，[markdown_extensions]和[plugins](#plugins)选项必须使用不使用列表项(以`-`开头的行)的替代语法。
 
-For example, suppose the common (parent) configuration is defined in `base.yml`:
+例如，假设公共(父)配置定义在`base.yml`中:
 
 ```yaml
 theme:
@@ -872,8 +862,7 @@ markdown_extensions:
     admonition: {}
 ```
 
-Then, for the "foo" site, the primary configuration file would be defined at
-`foo/mkdocs.yml`:
+然后，对于“foo”站点，主配置文件将定义在`foo/mkdocs.yml`:
 
 ```yml
 INHERIT: ../base.yml
@@ -881,10 +870,9 @@ site_name: Foo Project
 site_url: https://example.com/foo
 ```
 
-When running `mkdocs build`, the file at `foo/mkdocs.yml` would be passed in as
-the configuration file. MkDocs will then parse that file, retrieve and parse the
-parent file `base.yml` and deep merge the two. This would result in MkDocs
-receiving the following merged configuration:
+当运行`mkdocs build`时，`foo/mkdocs.yml`处的文件将作为配置文件传入。
+然后 MkDocs 将解析该文件，检索并解析父文件`base.yml` ，并将两者深度合并。
+这将导致 MkDocs 收到以下合并配置:
 
 ```yaml
 site_name: Foo Project
@@ -901,10 +889,9 @@ markdown_extensions:
     admonition: {}
 ```
 
-Deep merging allows you to add and/or override various values in your primary
-configuration file. For example, suppose for one site you wanted to add support
-for definition lists, use a different symbol for permalinks, and define a
-different separator. In that site's primary configuration file you could do:
+深度合并允许您在主配置文件中添加和/或覆盖各种值。
+例如，假设对于一个站点，您希望添加对定义列表的支持，为永久链接使用不同的符号，并定义不同的分隔符。
+在该站点的主配置文件中，您可以这样做:
 
 ```yaml
 INHERIT: ../base.yml
@@ -918,8 +905,7 @@ markdown_extensions:
         separator: "_"
 ```
 
-In that case, the above configuration would be deep merged with `base.yml` and
-result in the following configuration:
+在这种情况下，上述配置将与`base.yml`深度合并，并产生以下配置:
 
 ```yaml
 site_name: Bar Project
@@ -938,25 +924,20 @@ markdown_extensions:
     admonition: {}
 ```
 
-Notice that the `admonition` extension was retained from the parent
-configuration, the `def_list` extension was added, the value of
-`toc.permalink` was replaced, and the value of `toc.separator` was added.
+注意，`admonition`扩展从父配置中保留，`def_list`扩展被添加，`toc.permalink`的值被替换，`toc.separator`的值被添加。
 
-You can replace or merge the value of any key. However, any non-key is always
-replaced. Therefore, you cannot append items to a list. You must redefine the
-entire list.
+您可以替换或合并任何键的值。
+但是，任何非键都将被替换。
+因此，不能将项追加到列表中。
+您必须重新定义整个列表。
 
-As the [nav] configuration is made up of nested lists, this means that you
-cannot merge navigation items. Of course, you can replace the entire `nav`
-configuration with a new one. However, it is generally expected that the entire
-navigation would be defined in the primary configuration file for a project.
+由于[nav]配置由嵌套列表组成，这意味着您不能合并导航项。
+当然，你可以将整个`nav`配置替换为一个新的。但是，通常期望整个导航将在项目的主配置文件中定义。
 
 WARNING:
-As a reminder, all path based configuration options must be relative to the
-primary configuration file and MkDocs does not alter the paths when merging.
-Therefore, defining paths in a parent file which is inherited by multiple
-different sites may not work as expected. It is generally best to define
-path based options in the primary configuration file only.
+提醒一下，所有基于路径的配置选项都必须相对于主配置文件，MkDocs 在合并时不会改变路径。
+因此，在由多个不同站点继承的父文件中定义路径可能无法正常工作。
+通常最好只在主配置文件中定义基于路径的选项。
 
 [theme developer guide]: ../dev-guide/themes.md
 [pymdk-extensions]: https://python-markdown.github.io/extensions/

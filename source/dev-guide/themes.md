@@ -1,13 +1,12 @@
-# 发展主题
+# 开发主题
 
-A guide to creating and distributing custom themes.
+创建和分发自定义主题的指南。
 
 ---
 
 NOTE:
-If you are looking for existing third party themes, they are listed in the
-MkDocs [community wiki]. If you want to share a theme you create, you
-should list it on the Wiki.
+如果您正在寻找现有的第三方主题，它们在MkDocs[社区 wiki][community wiki]中列出。
+如果你想分享你创建的主题，你应该在维基上列出它。
 
 When creating a new theme, you can either follow the steps in this guide to
 create one from scratch or you can download the `mkdocs-basic-theme` as a
@@ -17,8 +16,7 @@ the code to describe the different features and their usage.
 
 [community wiki]: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes
 [basic theme]: https://github.com/mkdocs/mkdocs-basic-theme
-
-## Creating a custom theme
+##创建自定义主题
 
 The bare minimum required for a custom theme is a `main.html` [Jinja2
 template] file which is placed in a directory that is *not* a child of the
@@ -77,7 +75,7 @@ theme:
 [packaged]: #packaging-themes
 [theme]: ../user-guide/configuration.md#theme
 
-## Basic theme
+## 基本主题
 
 The simplest `main.html` file is the following:
 
@@ -115,7 +113,7 @@ themes for consistency.
 [template inheritance]: http://jinja.pocoo.org/docs/dev/templates/#template-inheritance
 [blocks]: ../user-guide/customizing-your-theme.md#overriding-template-blocks
 
-## Theme Files
+## 主题文件
 
 There are various files which a theme treats special in some way. Any other
 files are simply copied from the theme directory to the same path in the
@@ -124,7 +122,7 @@ special significance and are copied as-is. Note, however, that if the user
 provides a file with the same path in their `docs_dir`, then the user's file
 will replace the theme file.
 
-### Template Files
+### 模板文件
 
 Any files with the `.html` extension are considered to be template files and are
 not copied from the theme directory or any subdirectories. Also, any files
@@ -133,12 +131,12 @@ extension.
 
 [static_templates]: #static_templates
 
-### Theme Meta Files
+### 主题元文件
 
 The various files required for packaging a theme are also ignored. Specifically,
 the `mkdocs_theme.yml` configuration file and any Python files.
 
-### Dot Files
+### 点文件
 
 Theme authors can explicitly force MkDocs to ignore files by starting a file or
 directory name with a dot. Any of the following files would be ignored:
@@ -150,13 +148,13 @@ foo/.ignored.txt
 foo/.ignored/file.txt
 ```
 
-### Documentation Files
+### 文档文件
 
 All documentation files are ignored. Specifically, any Markdown files (using any
 of the file extensions supported by MKDocs). Additionally, any README files
 which may exist in the theme directories are ignored.
 
-## Template Variables
+## 模板变量
 
 Each template in a theme is built with a template context. These are the
 variables that are available to themes. The context varies depending on the
@@ -165,7 +163,7 @@ the global context or with a page specific context. The global context is used
 for HTML pages that don't represent an individual Markdown document, for
 example a 404.html page or search.html.
 
-### Global Context
+### 全局环境
 
 The following variables are available globally on any template.
 
@@ -220,7 +218,7 @@ pages which are not included in the navigation. This list does match the list
 and order of pages used for all "next page" and "previous page" links. For a
 list of all pages, use the [pages](#pages) template variable.
 
-##### Nav Example
+##### 导航示例
 
 Following is a basic usage example which outputs the first and second level
 navigation as a nested list.
@@ -445,7 +443,7 @@ on the homepage:
         show_root_toc_entry: true
         heading_level: 5
 
-### Navigation Objects
+### 导航对象
 
 Navigation objects contained in the [nav](#nav) template variable may be one of
 [section](#section) objects, [page](#page) objects, and [link](#link) objects.
@@ -562,7 +560,7 @@ The following attributes are available on `link` objects:
         show_root_full_path: false
         heading_level: 5
 
-### Extra Context
+### 额外的上下文
 
 Additional variables can be passed to the template with the
 [`extra`](../user-guide/configuration.md#extra) configuration option. This is a
@@ -595,7 +593,7 @@ And then displayed with this HTML in the custom theme.
 {% endif %}
 ```
 
-## Template Filters
+## 模板过滤器
 
 In addition to [Jinja's default filters], the following custom filters are
 available to use in MkDocs templates:
@@ -621,7 +619,7 @@ Safety convert a Python object to a value in a JavaScript script.
 </script>
 ```
 
-## Search and themes
+## 搜索和主题
 
 As of MkDocs version *0.17* client side search support has been added to MkDocs
 via the `search` plugin. A theme needs to provide a few things for the plugin to
@@ -735,7 +733,7 @@ index when it is available. The `index` object was new in MkDocs version *1.0*.
 [prebuild_index]: ../user-guide/configuration.md#prebuild_index
 [Jinja's default filters]: https://jinja.palletsprojects.com/en/latest/templates/#builtin-filters
 
-## Packaging Themes
+## 包装主题
 
 MkDocs makes use of [Python packaging] to distribute themes. This comes with a
 few requirements.
@@ -757,7 +755,7 @@ your theme, your users can more easily install it, they can rely on a default
 [MkDocs Bootstrap theme]: https://mkdocs.github.io/mkdocs-bootstrap/
 [MkDocs Bootswatch theme]: https://mkdocs.github.io/mkdocs-bootswatch/
 
-### Package Layout
+### 包装布局
 
 The following layout is recommended for themes. Two files at the top level
 directory called `MANIFEST.in` and `setup.py` beside the theme directory which
@@ -829,8 +827,8 @@ it includes a `main.html` for the theme. It **must** also include a
 `__init__.py` file which should be empty, this file tells Python that the
 directory is a package.
 
-### Theme Configuration
-
+### 主题配置
+    
 A packaged theme is required to include a configuration file named
 `mkdocs_theme.yml` which is placed in the root of your template files. The file
 should contain default configuration options for the theme. However, if the
@@ -926,7 +924,7 @@ Plugins may also define some options which allow the theme to inform a plugin
 about which set of plugin options it expects. See the documentation for any
 plugins you may wish to support in your theme.
 
-### Distributing Themes
+### 分发主题
 
 With the above changes, your theme should now be ready to install. This can be
 done with pip, using `pip install .` if you are still in the same directory as
@@ -947,7 +945,7 @@ documentation for [Packaging and Distributing Projects].
 [Packaging and Distributing Projects]: https://packaging.python.org/en/latest/distributing/
 [Jinja inheritance rules]: https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance
 
-## Supporting theme Localization/Translation
+## 支持主题本地化/翻译
 
 While the built-in themes provide support for [localization/translation] of
 templates, custom themes and third-party themes may choose not to. Regardless,
@@ -964,7 +962,7 @@ same commands utilized by MkDocs.
 
 [localization/translation]: ../user-guide/localizing-your-theme.md
 
-### Using the Localization/Translation commands
+### 使用本地化/翻译命令
 
 WARNING:
 As **[pybabel] is not installed by default** and most users will not have
@@ -983,7 +981,7 @@ themes, see the appropriate [section] of the Contributing Guide and the
 [section]: ../about/contributing.md#submitting-changes-to-the-builtin-themes
 [Translation Guide]: translations.md
 
-### Example custom theme Localization/Translation workflow
+### 示例自定义主题本地化/翻译工作流程
 
 > NOTE: If your theme inherits from an existing theme which already provides
 > translation catalogs, your theme's translations will be merged with the
@@ -1016,7 +1014,7 @@ Edit the templates by wrapping text in your HTML sources with
 Then you would follow the [Translation Guide] as usual to get your translations
 running.
 
-### Packaging Translations with your theme
+### 带有主题的包装翻译
 
 While the Portable Object Template (`pot`) file created by the
 `extract_messages` command and the Portable Object (`po`) files created by the
@@ -1044,5 +1042,5 @@ theme. At a minimum, you need to ensure that up-to-date `mo` files are
 included at the correct location in each release. However, you may use a
 different process for generating those `mo` files if you chose to do so.
 
-[packaging a theme]: #packaging-themes
-[Testing theme translations]: translations.md#testing-theme-translations
+[包装主题]: #packaging-themes
+[测试主题翻译]: translations.md#testing-theme-translations
